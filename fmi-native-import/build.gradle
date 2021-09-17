@@ -19,6 +19,7 @@ if (!project.getProperties().get("skipBuildNative", false)) {
                 machines.windows.x86,
                 machines.windows.x86_64,
                 machines.linux.x86_64,
+                machines.macOS.x86_64
         ])
 
         lib.binaries.whenElementFinalized { CppBinary binary ->
@@ -30,6 +31,8 @@ if (!project.getProperties().get("skipBuildNative", false)) {
                     add(binary.includePathConfiguration.name, files("$javaHome/include/linux"))
                 } else if (OperatingSystem.current().isWindows()) {
                     add(binary.includePathConfiguration.name, files("$javaHome/include/win32"))
+                } else if (OperatingSystem.current().isMacOsX()) {
+                    add(binary.includePathConfiguration.name, files("$javaHome/include/darwin"))
                 } else {
                     throw new IllegalStateException("Unsupported OS: " + OperatingSystem.current().name)
                 }
@@ -70,6 +73,11 @@ if (!project.getProperties().get("skipBuildNative", false)) {
                     into("win64") {
                         from "$buildDir/lib/main/release/windows/x86-64"
                         include "*.dll"
+                    }
+                } else if (OperatingSystem.current().isMacOsX()) {
+                    into("darwin64") {
+                        from "$buildDir/lib/main/release/darwin/x86-64"
+                        include "*.dylib"
                     }
                 } else {
                     throw new Exception("Unsupported OS: " + OperatingSystem.current().name)
