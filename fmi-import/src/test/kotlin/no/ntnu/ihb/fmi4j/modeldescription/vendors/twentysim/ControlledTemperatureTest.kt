@@ -33,10 +33,13 @@ import no.ntnu.ihb.fmi4j.modeldescription.variables.VariableType
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.*
 
+@DisabledOnOs(OS.MAC)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ControlledTemperatureTest {
 

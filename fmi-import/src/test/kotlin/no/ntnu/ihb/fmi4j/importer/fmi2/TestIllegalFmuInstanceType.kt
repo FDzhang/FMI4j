@@ -3,9 +3,12 @@ package no.ntnu.ihb.fmi4j.importer.fmi2
 import no.ntnu.ihb.fmi4j.TestFMUs
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 import java.io.File
 import java.io.FileNotFoundException
 
+@DisabledOnOs(OS.MAC)
 class TestIllegalFmuInstanceType {
 
     @Test

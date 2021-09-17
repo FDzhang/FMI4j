@@ -21,6 +21,7 @@ class ControlledTemperatureTest {
     }
 
     @Test
+    @DisabledOnOs(OS.MAC)
     fun test() {
 
         TestFMUs.get("2.0/cs/20sim/4.6.4.8004/ControlledTemperature/ControlledTemperature.fmu").let {

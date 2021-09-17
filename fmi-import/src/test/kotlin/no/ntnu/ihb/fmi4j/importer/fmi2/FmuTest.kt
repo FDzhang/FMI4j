@@ -3,6 +3,8 @@ package no.ntnu.ihb.fmi4j.importer.fmi2
 import no.ntnu.ihb.fmi4j.TestFMUs
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 import java.io.File
 import java.io.FileNotFoundException
 
@@ -23,6 +25,7 @@ class FmuTest {
     }
 
     @Test
+    @DisabledOnOs(OS.MAC)
     fun testFromBinary() {
         val fmuName = "ControlledTemperature"
         val file = TestFMUs.get("2.0/cs/20sim/4.6.4.8004/$fmuName/${fmuName}.fmu")
@@ -34,6 +37,7 @@ class FmuTest {
     }
 
     @Test
+    @DisabledOnOs(OS.MAC)
     fun testFromUrl() {
         val fmuName = "ControlledTemperature"
         Fmu.from(TestFMUs.get("2.0/cs/20sim/4.6.4.8004/$fmuName/${fmuName}.fmu")).use {

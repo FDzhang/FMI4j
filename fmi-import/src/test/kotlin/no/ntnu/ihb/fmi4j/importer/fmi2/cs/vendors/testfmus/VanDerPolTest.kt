@@ -6,6 +6,8 @@ import no.ntnu.ihb.fmi4j.importer.fmi2.Fmu
 import no.ntnu.ihb.fmi4j.read
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -16,6 +18,7 @@ class VanDerPolTest {
     }
 
     @Test
+    @DisabledOnOs(OS.MAC)
     fun testInstance() {
 
         val fmu = TestFMUs.get("2.0/both/Test-FMUs/0.0.1/VanDerPol/VanDerPol.fmu").let {

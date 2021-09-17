@@ -6,7 +6,10 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 
+@DisabledOnOs(OS.MAC)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FmuVariableAccessorTest {
 
