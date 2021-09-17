@@ -7,13 +7,15 @@ import no.ntnu.ihb.fmi4j.read
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.DisabledOnOs
+import org.junit.jupiter.api.condition.OS
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.system.measureTimeMillis
 
-
+@DisabledOnOs(OS.MAC)
 class ControlledTemperatureTest {
 
     companion object {
@@ -21,7 +23,6 @@ class ControlledTemperatureTest {
     }
 
     @Test
-    @DisabledOnOs(OS.MAC)
     fun test() {
 
         TestFMUs.get("2.0/cs/20sim/4.6.4.8004/ControlledTemperature/ControlledTemperature.fmu").let {
