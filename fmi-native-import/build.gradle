@@ -22,6 +22,12 @@ if (!project.getProperties().get("skipBuildNative", false)) {
                 machines.macOS.x86_64
         ])
 
+        lib.binaries.configureEach {
+
+            compileTask.get().compilerArgs.add("-std=c++17")
+
+        }
+
         lib.binaries.whenElementFinalized { CppBinary binary ->
             project.dependencies {
 
