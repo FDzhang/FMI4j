@@ -17,7 +17,7 @@ if (!project.getProperties().get("skipBuildNative", false)) {
         targetMachines.set([
                 machines.windows.x86_64,
                 machines.linux.x86_64,
-                machines.macOS.x86_64
+//                machines.macOS.x86_64
         ])
 
         lib.binaries.configureEach {
