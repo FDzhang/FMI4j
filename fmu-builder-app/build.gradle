@@ -7,7 +7,7 @@ plugins {
 mainClassName = "no.ntnu.ihb.fmi4j.FmuBuilder"
 
 dependencies {
-    compile project(':fmu-builder')
+    project(':fmu-builder')
 }
 
 shadowJar {

@@ -7,7 +7,7 @@ println "Gradle version is ${gradle.getGradleVersion()}"
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
-    gradleVersion = '6.7'
+    gradleVersion = '7.2'
 }
 
 group = "info.laht.fmi4j"
